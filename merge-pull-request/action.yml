@@ -1,0 +1,12 @@
+name: merge-pull-request
+runs:
+  using: "composite"
+  if: ${{ contains(github.event.comment.body, '/merge')
+          && github.event.issue.pull_request }}
+
+  steps:
+    - name: Merge with fast forwarding
+      uses: sequoia-pgp/fast-forward@v1
+      with:
+        merge: true
+        comment: false

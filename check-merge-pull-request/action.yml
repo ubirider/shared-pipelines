@@ -1,0 +1,9 @@
+name: check-merge-pull-request
+runs:
+  using: "composite"
+  steps:
+    - name: Checking if merge with fast forwarding is possible
+      uses: sequoia-pgp/fast-forward@v1
+      with:
+        merge: false
+        comment: false
